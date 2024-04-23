@@ -10,13 +10,13 @@ interface Props {
 
 export default function ActivityForm({ activity : selectedActivity, closeForm, createOrEdit }: Props) {
   const initialState = selectedActivity ?? {
-    id: "",
-    title: "",
-    category: "",
-    description: "",
-    date: "",
-    city: "",
-    venue: "",
+    id: '',
+    title: '',
+    category: '',
+    description: '',
+    date: '',
+    city: '',
+    venue: '',
   };
 
   const [activity, setActivity] = useState(initialState);
