@@ -13,7 +13,7 @@ import MySelectInput from "../../../app/common/form/MySelectInput";
 import { categoryOptions } from "../../../app/common/options/categoryOptions";
 import MyDateInput from "../../../app/common/form/MyDateInput";
 import { v4 as uuid } from 'uuid';
-import { router } from "../../../app/router/Routes";
+import { router } from '../../../app/router/Routes';
 
 export default observer(function ActivityForm() {
   const { activityStore } = useStore();
@@ -21,6 +21,8 @@ export default observer(function ActivityForm() {
     loading,
     loadActivity,
     loadingInitial,
+    createActivity,
+    updateActivity,
   } = activityStore;
   const { id } = useParams();
 
@@ -53,9 +55,9 @@ export default observer(function ActivityForm() {
         ...activity,
         id: uuid()
       };
-      activityStore.createActivity(activity).then(() => router.navigate(`/activities/${activity.id}`))
+      createActivity(activity).then(() => router.navigate(`/activities/${activity.id}`))
     } else {
-      activityStore.updateActivity(activity).then(() => router.navigate(`/activities/${activity.id}`))
+      updateActivity(activity).then(() => router.navigate(`/activities/${activity.id}`))
     }
   }
 
