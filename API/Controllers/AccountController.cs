@@ -36,11 +36,13 @@ public class AccountController : ControllerBase
 
         if (result)
         {
-            CreateUserObject(user);
+            return CreateUserObject(user);
         }
 
         return Unauthorized();
     }
+
+
 
     [AllowAnonymous]
     [HttpPost("register")]
