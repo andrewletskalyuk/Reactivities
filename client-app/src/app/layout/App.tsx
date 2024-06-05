@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useStore } from "../stores/store";
 import { useEffect } from "react";
 import LoadingComponent from "./LoadingComponent";
+import ModalContainer from "../common/modals/modalContainer";
 
 function App() {
   const location = useLocation();
@@ -23,10 +24,11 @@ function App() {
     }
   }, [commonStore, userStore])
 
-  if (!commonStore.appLoaded) return <LoadingComponent content="Loading app..."/>
+  if (!commonStore.appLoaded) return <LoadingComponent content="Loading app..." />
 
   return (
     <>
+      <ModalContainer />
       <ToastContainer position='bottom-right' hideProgressBar theme='colored' />
       {location.pathname === "/" ? <HomePage /> : (
         <>
