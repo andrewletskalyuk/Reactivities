@@ -56,7 +56,7 @@ public class AccountController : ControllerBase
 
         if (await _userManager.Users.FirstOrDefaultAsync(x => x.Email == registerDto.Email) != null)
         {
-            ModelState.AddModelError("username", "Username taken");
+            ModelState.AddModelError("username", "Username token");
             return ValidationProblem();
         }
 
